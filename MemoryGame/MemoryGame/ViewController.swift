@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         setScore()
         sethighestScore()
     }
-    
+
     @IBAction func cardButtonTapped(_ sender: UIButton) {
         let emoji = emojiArray[sender.tag % 10]
         if sender.title(for: .normal) != emoji {
@@ -104,7 +104,7 @@ class ViewController: UIViewController {
     }
     
     func checkEndOfGame(){
-        if tagsArray.sorted().first == tagsArray.sorted().last && tagsArray.sorted().first == -1{
+        if tagsArray.sorted().last == -1{
             showToast(message: "Congratulations")
             newGameButton.isHidden = false
         }
@@ -119,12 +119,14 @@ class ViewController: UIViewController {
         currentScore = 0
         viewDidLoad()
     }
-   
+    
+    
     func setScore(){
         if currentScore < 0 {
             currentScore = 0
         }
         scoreLabel.text = "Score: \(currentScore) "
+        
     }
     
     func sethighestScore(){
