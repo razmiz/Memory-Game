@@ -31,17 +31,8 @@ class ViewController: UIViewController {
         sethighestScore()
     }
     
-//    func printArray (input: [Int]){
-//        var newString = ""
-//        for i in input{
-//            newString.append(String(i) + " ")
-//        }
-//        print(newString + "\n")
-//    }
-
     @IBAction func cardButtonTapped(_ sender: UIButton) {
         let emoji = emojiArray[sender.tag % 10]
-        //        let title = sender.title(for: .normal) != emoji ? emoji : continue
         if sender.title(for: .normal) != emoji {
             sender.setTitle(emoji, for: .normal)
     
@@ -60,11 +51,9 @@ class ViewController: UIViewController {
                     } else {
                         let index1 = self.cardsTuple.card1Tag
                         let index2 = self.cardsTuple.card2Tag
-//                        print("index1: \(index1) ,index2: \(index2)")
                         
                         self.tagsArray[index1] = -1
                         self.tagsArray[index2] = -1
-//                        self.printArray(input: self.tagsArray)
                         let lastTag = self.tagsArray.sorted().last
                         if lastTag! > -1{
                             self.showToast(message: "YAY 😊!!!")
@@ -105,7 +94,6 @@ class ViewController: UIViewController {
     func configureButton(){
         var number = 0
         let shuffledArray = tagsArray.shuffled()
-//        printArray(input: shuffledArray)
         
         for button in cardButtons{
             button.layer.cornerRadius = 10
@@ -131,14 +119,12 @@ class ViewController: UIViewController {
         currentScore = 0
         viewDidLoad()
     }
-    
-    
+   
     func setScore(){
         if currentScore < 0 {
             currentScore = 0
         }
         scoreLabel.text = "Score: \(currentScore) "
-        
     }
     
     func sethighestScore(){
