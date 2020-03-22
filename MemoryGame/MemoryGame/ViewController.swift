@@ -30,12 +30,12 @@ class ViewController: UIViewController {
         setScore()
         sethighestScore()
     }
-
+    
     @IBAction func cardButtonTapped(_ sender: UIButton) {
         let emoji = emojiArray[sender.tag % 10]
         if sender.title(for: .normal) != emoji {
             sender.setTitle(emoji, for: .normal)
-    
+            
             switch taps {
             case 0:
                 cardsTuple.card1Tag = sender.tag
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
                 cardsTuple.card2Tag = sender.tag
                 cardsTuple.card2Emoji = emoji
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                     if !self.checkCardsEmoji() {
                         self.clearCards()
                     } else {
@@ -98,17 +98,25 @@ class ViewController: UIViewController {
         for button in cardButtons{
             button.layer.cornerRadius = 10
             button.titleLabel?.font = UIFont.systemFont(ofSize: 50)
+            button.backgroundColor = UIColor.white
             button.tag = shuffledArray[number]
             number += 1
         }
     }
     
     func checkEndOfGame(){
+        if currentScore > highestScore{
+            sethighestScore()
+        }
         if tagsArray.sorted().last == -1{
             showToast(message: "Congratulations")
             newGameButton.isHidden = false
+            saveScore(scoreToSave: highestScore)
+            for card in cardButtons{
+                card.backgroundColor = UIColor.green
+            }
         }
-        sethighestScore()
+        
     }
     
     
@@ -130,11 +138,31 @@ class ViewController: UIViewController {
     }
     
     func sethighestScore(){
+        highestScore = getSavedScore()
         if currentScore > highestScore{
             highestScore = currentScore
         }
         highestScoreLabel.text = "Highest Score: \(highestScore)"
     }
+    
+    
+    func saveScore(scoreToSave: Int){
+        let preferences = UserDefaults.standard
+        preferences.set(scoreToSave, forKey: "currentScore")
+        
+        preferences.synchronize()
+    }
+    
+    func getSavedScore() -> Int {
+        let preferences = UserDefaults.standard
+        if preferences.string(forKey: "currentScore") != nil{
+            let currentScore = preferences.string(forKey: "currentScore")
+            return Int(currentScore!) ?? 0
+        } else {
+            return 0
+        }
+    }
+    
 }
 
 
@@ -153,7 +181,7 @@ extension UIViewController {
         toastLabel.layer.cornerRadius = 10;
         toastLabel.clipsToBounds  =  true
         self.view.addSubview(toastLabel)
-        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 2.0, delay: 0.01, options: .curveEaseOut, animations: {
             toastLabel.alpha = 0.0
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()
