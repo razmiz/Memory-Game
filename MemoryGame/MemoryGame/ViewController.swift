@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet var cardButtons: [UIButton]!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var highestScoreLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
     
     
     var emojiArray: [String] = ["🐶", "🐸", "🐣", "🐱", "🐠", "🦞", "🐝", "🐳", "🦄", "🐓"]
@@ -23,12 +24,16 @@ class ViewController: UIViewController {
     var highestScore: Int = 0
     let preferences = UserDefaults.standard
     
+    var timer:Timer?
+    var timeLeft = 60
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         shuffleCards()
         configureButton()
         setScore()
         sethighestScore()
+        startTimer()
     }
     
     @IBAction func cardButtonTapped(_ sender: UIButton) {
@@ -53,7 +58,6 @@ class ViewController: UIViewController {
                 fallthrough
             default:
                 taps = 0
-//                cardsTuple = (0, " ", 0, " ")
             }
         }
     }
@@ -64,15 +68,11 @@ class ViewController: UIViewController {
         } else {
             tagsArray[cardsTuple.card1Tag] = -1
             tagsArray[cardsTuple.card2Tag] = -1
-        
             showToast(message: "YAY 😊!!!")
-            
             currentScore += 5
             setScore()
         }
     }
-    
-    
     
     func checkCardsEmoji() -> Bool{
         guard cardsTuple.card2Emoji != " " && cardsTuple.card1Emoji != " " else { return false }
@@ -110,10 +110,9 @@ class ViewController: UIViewController {
             sethighestScore()
         }
         if tagsArray.sorted().last == -1{
-            showAlert()
-            
-            //            showToast(message: "Congratulations")
-            //            saveScore(scoreToSave: highestScore)
+            showAlert(title: "Well Done! 🙂", message: "play again?")
+            timer!.invalidate()
+            timer = nil
         }
         
     }
@@ -124,6 +123,7 @@ class ViewController: UIViewController {
         clearCards()
         currentScore = 0
         viewDidLoad()
+        timeLeft = 60
     }
     
     
@@ -140,7 +140,6 @@ class ViewController: UIViewController {
             currentScore = 0
         }
         scoreLabel.text = "Score: \(currentScore) "
-        
     }
     
     func sethighestScore(){
@@ -161,8 +160,8 @@ class ViewController: UIViewController {
         return preferences.integer(forKey: UserDefaultCodingKeys.currentScore.rawValue)
     }
     
-    func showAlert(){
-        let alertConroller = UIAlertController(title: "Well Done! 🙂", message: "play again?", preferredStyle: .alert)
+    func showAlert(title: String, message: String){
+        let alertConroller = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okButton = UIAlertAction(title: "OK", style: .default, handler: {
             UIAlertAction in
             self.resetGame()
@@ -176,6 +175,28 @@ class ViewController: UIViewController {
         
         self.present(alertConroller, animated: true, completion: nil)
     }
+    
+    func startTimer(){
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
+        timerLabel.text = "Timer: 01:00"
+    }
+    
+    @objc func onTimerFires(){
+        timeLeft -= 1
+        
+        if timeLeft < 60 && timeLeft >= 10 {
+            timerLabel.text = "Timer: 00:\(timeLeft)"
+        }
+        if timeLeft < 10 {
+            timerLabel.text = "Timer: 00:0\(timeLeft)"
+        }
+        if timeLeft <= 0 {
+            timer!.invalidate()
+            timer = nil
+            showAlert(title: "Times Up!", message: "Try again?")
+        }
+    }
+    
 }
 
 

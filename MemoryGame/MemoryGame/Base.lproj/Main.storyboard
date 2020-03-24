@@ -218,10 +218,17 @@
                                 <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer: 01:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeY-4y-a78">
+                                <rect key="frame" x="51.000000000000007" y="484.66666666666669" width="120.66666666666669" height="28.333333333333314"/>
+                                <fontDescription key="fontDescription" name="NotoSansOriya-Bold" family="Noto Sans Oriya" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jMl-tq-1OU" secondAttribute="trailing" constant="141" id="0G4-6f-Hgs"/>
+                            <constraint firstItem="PeY-4y-a78" firstAttribute="top" secondItem="jMl-tq-1OU" secondAttribute="bottom" constant="16" id="4ay-OM-UgK"/>
                             <constraint firstItem="VK2-xq-C3I" firstAttribute="top" secondItem="sOd-Oc-YeP" secondAttribute="bottom" constant="17.5" id="6dC-p4-yR3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VK2-xq-C3I" secondAttribute="trailing" constant="16" id="Ia2-a3-yua"/>
                             <constraint firstItem="jMl-tq-1OU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="51" id="VUi-0h-tK8"/>
@@ -231,6 +238,7 @@
                             <constraint firstItem="sOd-Oc-YeP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="39" id="h2k-jF-50m"/>
                             <constraint firstItem="jMl-tq-1OU" firstAttribute="top" secondItem="4q7-vI-HxT" secondAttribute="bottom" constant="7" id="hEi-hc-Ini"/>
                             <constraint firstItem="VK2-xq-C3I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="jbT-eW-ad6"/>
+                            <constraint firstItem="PeY-4y-a78" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="51" id="tAE-jY-Pmm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VK2-xq-C3I" secondAttribute="trailing" constant="16" id="tHV-Zr-W0v"/>
                             <constraint firstItem="sOd-Oc-YeP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="39" id="u1u-4r-Fm2"/>
                             <constraint firstItem="sOd-Oc-YeP" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="vsB-ya-kut"/>
@@ -240,6 +248,7 @@
                     <connections>
                         <outlet property="highestScoreLabel" destination="jMl-tq-1OU" id="6hF-R2-IYQ"/>
                         <outlet property="scoreLabel" destination="4q7-vI-HxT" id="mtA-8k-QZP"/>
+                        <outlet property="timerLabel" destination="PeY-4y-a78" id="Q8a-EC-gt3"/>
                         <outletCollection property="cardButtons" destination="6Lg-jP-bel" collectionClass="NSMutableArray" id="DLh-sL-zdf"/>
                         <outletCollection property="cardButtons" destination="VY1-gb-khF" collectionClass="NSMutableArray" id="R22-8S-y08"/>
                         <outletCollection property="cardButtons" destination="I6x-VX-Ni9" collectionClass="NSMutableArray" id="V7U-fj-MUj"/>
