@@ -15,14 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memory Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOd-Oc-YeP">
-                                <rect key="frame" x="90.666666666666671" y="83" width="232.66666666666663" height="46.333333333333343"/>
-                                <fontDescription key="fontDescription" name="NotoSansOriya-Bold" family="Noto Sans Oriya" pointSize="33"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VK2-xq-C3I">
-                                <rect key="frame" x="16" y="147" width="382" height="222"/>
+                                <rect key="frame" x="16" y="153" width="382" height="222"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cN7-Iv-cx4">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="48"/>
@@ -207,21 +201,37 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4q7-vI-HxT">
-                                <rect key="frame" x="51" y="405" width="142" height="28.333333333333314"/>
+                                <rect key="frame" x="51" y="411" width="142" height="28.333333333333314"/>
                                 <fontDescription key="fontDescription" name="NotoSansOriya-Bold" family="Noto Sans Oriya" pointSize="20"/>
                                 <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMl-tq-1OU">
-                                <rect key="frame" x="51" y="440.33333333333331" width="222" height="28.333333333333314"/>
+                                <rect key="frame" x="51" y="446.33333333333331" width="222" height="28.333333333333314"/>
                                 <fontDescription key="fontDescription" name="NotoSansOriya-Bold" family="Noto Sans Oriya" pointSize="20"/>
                                 <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer: 01:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeY-4y-a78">
-                                <rect key="frame" x="51.000000000000007" y="484.66666666666669" width="120.66666666666669" height="28.333333333333314"/>
+                                <rect key="frame" x="51" y="490.66666666666669" width="222" height="28.333333333333314"/>
                                 <fontDescription key="fontDescription" name="NotoSansOriya-Bold" family="Noto Sans Oriya" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yez-SY-HcI">
+                                <rect key="frame" x="228" y="53" width="176" height="36"/>
+                                <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="17"/>
+                                <state key="normal" title="Reset Game">
+                                    <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetGameButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Q7-Nz-eA0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memory Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOd-Oc-YeP">
+                                <rect key="frame" x="91" y="85" width="232.66666666666663" height="52.666666666666657"/>
+                                <fontDescription key="fontDescription" name="NotoSansOriya-Bold" family="Noto Sans Oriya" pointSize="33"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -229,18 +239,24 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jMl-tq-1OU" secondAttribute="trailing" constant="141" id="0G4-6f-Hgs"/>
                             <constraint firstItem="PeY-4y-a78" firstAttribute="top" secondItem="jMl-tq-1OU" secondAttribute="bottom" constant="16" id="4ay-OM-UgK"/>
-                            <constraint firstItem="VK2-xq-C3I" firstAttribute="top" secondItem="sOd-Oc-YeP" secondAttribute="bottom" constant="17.5" id="6dC-p4-yR3"/>
+                            <constraint firstItem="Yez-SY-HcI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="9" id="618-yn-KQi"/>
+                            <constraint firstItem="VK2-xq-C3I" firstAttribute="top" secondItem="sOd-Oc-YeP" secondAttribute="bottom" constant="15.333333333333343" id="6dC-p4-yR3"/>
+                            <constraint firstItem="Yez-SY-HcI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="9" id="ClM-sE-6Re"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VK2-xq-C3I" secondAttribute="trailing" constant="16" id="Ia2-a3-yua"/>
+                            <constraint firstItem="Yez-SY-HcI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="228" id="JrE-gw-Adh"/>
                             <constraint firstItem="jMl-tq-1OU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="51" id="VUi-0h-tK8"/>
                             <constraint firstItem="4q7-vI-HxT" firstAttribute="top" secondItem="Zee-oB-SYy" secondAttribute="bottom" constant="36" id="aJb-yM-hhw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4q7-vI-HxT" secondAttribute="trailing" constant="221" id="aeo-17-o7v"/>
                             <constraint firstItem="4q7-vI-HxT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="51" id="g2M-cA-m1q"/>
-                            <constraint firstItem="sOd-Oc-YeP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="39" id="h2k-jF-50m"/>
+                            <constraint firstItem="sOd-Oc-YeP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="41" id="h2k-jF-50m"/>
                             <constraint firstItem="jMl-tq-1OU" firstAttribute="top" secondItem="4q7-vI-HxT" secondAttribute="bottom" constant="7" id="hEi-hc-Ini"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PeY-4y-a78" secondAttribute="trailing" constant="141" id="huJ-aS-HDL"/>
                             <constraint firstItem="VK2-xq-C3I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="jbT-eW-ad6"/>
+                            <constraint firstItem="VK2-xq-C3I" firstAttribute="top" secondItem="Yez-SY-HcI" secondAttribute="bottom" constant="64" id="kWV-AI-Ahl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Yez-SY-HcI" secondAttribute="trailing" constant="10" id="m9c-sx-3Ih"/>
                             <constraint firstItem="PeY-4y-a78" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="51" id="tAE-jY-Pmm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VK2-xq-C3I" secondAttribute="trailing" constant="16" id="tHV-Zr-W0v"/>
-                            <constraint firstItem="sOd-Oc-YeP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="39" id="u1u-4r-Fm2"/>
+                            <constraint firstItem="sOd-Oc-YeP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="41" id="u1u-4r-Fm2"/>
                             <constraint firstItem="sOd-Oc-YeP" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="vsB-ya-kut"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
